@@ -1,5 +1,6 @@
 
 from typing import TypedDict
+import subprocess
 
 from langchain_community.document_loaders import PyPDFLoader
 try:
@@ -179,6 +180,7 @@ while True:
 
         print("\nAnswer:")
         print(result["answer"])
+        subprocess.run(["say", result["answer"]], check=False)
 
         print("\nRetrieved PDF pages:", result["sources"])
         print("-" * 50)
